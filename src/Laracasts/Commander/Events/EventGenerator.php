@@ -1,6 +1,7 @@
 <?php namespace Laracasts\Commander\Events;
 
-trait EventGenerator {
+trait EventGenerator
+{
 
     /**
      * @var array
@@ -30,5 +31,4 @@ trait EventGenerator {
 
         return $events;
     }
-
-} 
+}

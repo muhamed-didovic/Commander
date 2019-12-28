@@ -1,6 +1,7 @@
 <?php namespace Laracasts\Commander\Console;
 
-class CommandInput {
+class CommandInput
+{
 
     public $name;
 
@@ -17,10 +18,8 @@ class CommandInput {
 
     public function arguments()
     {
-        return implode(', ', array_map(function($property)
-        {
+        return implode(', ', array_map(function ($property) {
             return '$' . $property;
         }, $this->properties));
     }
-
 }

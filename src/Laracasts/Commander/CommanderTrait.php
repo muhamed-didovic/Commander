@@ -2,9 +2,11 @@
 
 use ReflectionClass;
 use InvalidArgumentException;
-use Input, App;
+use Input;
+use App;
 
-trait CommanderTrait {
+trait CommanderTrait
+{
 
     /**
      * Execute the command
@@ -26,8 +28,7 @@ trait CommanderTrait {
         // filter through and register them
         // with the CommandBus, so that they
         // are executed first.
-        foreach ($decorators as $decorator)
-        {
+        foreach ($decorators as $decorator) {
             $bus->decorate($decorator);
         }
 
@@ -60,25 +61,18 @@ trait CommanderTrait {
 
         $class = new ReflectionClass($command);
 
-        foreach ($class->getConstructor()->getParameters() as $parameter)
-        {
+        foreach ($class->getConstructor()->getParameters() as $parameter) {
             $name = $parameter->getName();
 
-            if (array_key_exists($name, $input))
-            {
+            if (array_key_exists($name, $input)) {
                 $dependencies[] = $input[$name];
-            }
-            elseif ($parameter->isDefaultValueAvailable())
-            {
+            } elseif ($parameter->isDefaultValueAvailable()) {
                 $dependencies[] = $parameter->getDefaultValue();
-            }
-            else
-            {
+            } else {
                 throw new InvalidArgumentException("Unable to map input to command: {$name}");
             }
         }
 
         return $class->newInstanceArgs($dependencies);
     }
-
 }

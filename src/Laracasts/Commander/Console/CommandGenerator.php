@@ -3,7 +3,8 @@
 use Illuminate\Filesystem\Filesystem;
 use Mustache_Engine;
 
-class CommandGenerator {
+class CommandGenerator
+{
 
     protected $file;
 
@@ -23,5 +24,4 @@ class CommandGenerator {
 
         $this->file->put($destination, $stub);
     }
-
 }

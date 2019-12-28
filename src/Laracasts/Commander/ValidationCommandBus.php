@@ -3,7 +3,8 @@
 use Illuminate\Foundation\Application;
 use InvalidArgumentException;
 
-class ValidationCommandBus implements CommandBus {
+class ValidationCommandBus implements CommandBus
+{
 
     /**
      * @var CommandBus
@@ -73,8 +74,7 @@ class ValidationCommandBus implements CommandBus {
     {
         $validator = $this->commandTranslator->toValidator($command);
 
-        if (class_exists($validator))
-        {
+        if (class_exists($validator)) {
             $this->app->make($validator)->validate($command);
         }
     }
@@ -87,12 +87,10 @@ class ValidationCommandBus implements CommandBus {
      */
     protected function executeDecorators($command)
     {
-        foreach ($this->decorators as $className)
-        {
+        foreach ($this->decorators as $className) {
             $instance = $this->app->make($className);
 
-            if ( ! $instance instanceof CommandBus)
-            {
+            if (! $instance instanceof CommandBus) {
                 $message = 'The class to decorate must be an implementation of Laracasts\Commander\CommandBus';
 
                 throw new InvalidArgumentException($message);
@@ -101,5 +99,4 @@ class ValidationCommandBus implements CommandBus {
             $instance->execute($command);
         }
     }
-
 }

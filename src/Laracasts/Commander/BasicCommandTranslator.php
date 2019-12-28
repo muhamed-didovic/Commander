@@ -1,6 +1,7 @@
 <?php namespace Laracasts\Commander;
 
-class BasicCommandTranslator implements CommandTranslator {
+class BasicCommandTranslator implements CommandTranslator
+{
 
     /**
      * Translate a command to its handler counterpart
@@ -14,8 +15,7 @@ class BasicCommandTranslator implements CommandTranslator {
         $commandClass = get_class($command);
         $handler = substr_replace($commandClass, 'CommandHandler', strrpos($commandClass, 'Command'));
 
-        if ( ! class_exists($handler))
-        {
+        if (! class_exists($handler)) {
             $message = "Command handler [$handler] does not exist.";
 
             throw new HandlerNotRegisteredException($message);
@@ -36,5 +36,4 @@ class BasicCommandTranslator implements CommandTranslator {
 
         return substr_replace($commandClass, 'Validator', strrpos($commandClass, 'Command'));
     }
-
-} 
+}

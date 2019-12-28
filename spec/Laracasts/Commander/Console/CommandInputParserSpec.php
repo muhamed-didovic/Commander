@@ -3,7 +3,8 @@
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class CommandInputParserSpec extends ObjectBehavior {
+class CommandInputParserSpec extends ObjectBehavior
+{
 
     function it_is_initializable()
     {
@@ -36,6 +37,4 @@ class CommandInputParserSpec extends ObjectBehavior {
 
         $input->properties->shouldBe(['username', 'email']);
     }
-
-
 }

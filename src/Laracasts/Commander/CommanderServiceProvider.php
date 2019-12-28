@@ -3,7 +3,8 @@
 use Illuminate\Support\ServiceProvider;
 use Laracasts\Commander\Console\CommandInputParser;
 
-class CommanderServiceProvider extends ServiceProvider {
+class CommanderServiceProvider extends ServiceProvider
+{
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -49,8 +50,7 @@ class CommanderServiceProvider extends ServiceProvider {
      */
     protected function registerCommandBus()
     {
-        $this->app->bindShared('Laracasts\Commander\CommandBus', function ($app)
-        {
+        $this->app->bindShared('Laracasts\Commander\CommandBus', function ($app) {
             $default = $app->make('Laracasts\Commander\DefaultCommandBus');
             $translator = $app->make('Laracasts\Commander\CommandTranslator');
 
@@ -65,12 +65,10 @@ class CommanderServiceProvider extends ServiceProvider {
      */
     public function registerArtisanCommand()
     {
-        $this->app->bindShared('commander.command.make', function($app)
-        {
+        $this->app->bindShared('commander.command.make', function ($app) {
             return $app->make('Laracasts\Commander\Console\CommanderGenerateCommand');
         });
 
         $this->commands('commander.command.make');
     }
-
 }

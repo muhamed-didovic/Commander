@@ -19,5 +19,3 @@ $I->openFile("{$saveDir}/{$commandToGenerate}Handler.php");
 $I->seeFileContentsEqual(file_get_contents("{$stubDir}/{$commandToGenerate}Handler.stub"));
 
 $I->cleanDir($saveDir);
-
-

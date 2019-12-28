@@ -1,6 +1,7 @@
 <?php namespace Laracasts\Commander;
 
-interface CommandHandler {
+interface CommandHandler
+{
 
     /**
      * Handle the command
@@ -9,5 +10,4 @@ interface CommandHandler {
      * @return mixed
      */
     public function handle($command);
-
-} 
+}

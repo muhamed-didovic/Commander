@@ -1,6 +1,7 @@
 <?php namespace Laracasts\Commander\Console;
 
-class CommandInputParser {
+class CommandInputParser
+{
 
     public function parse($path, $properties)
     {
@@ -17,5 +18,4 @@ class CommandInputParser {
     {
         return preg_split('/ ?, ?/', $properties, null, PREG_SPLIT_NO_EMPTY);
     }
-
 }

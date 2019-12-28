@@ -1,6 +1,7 @@
 <?php namespace Laracasts\Commander;
 
-interface CommandBus {
+interface CommandBus
+{
 
     /**
      * Execute a command
@@ -9,5 +10,4 @@ interface CommandBus {
      * @return mixed
      */
     public function execute($command);
-
 }
