@@ -1,6 +1,7 @@
 <?php namespace Laracasts\Commander;
 
-interface CommandTranslator {
+interface CommandTranslator
+{
 
     /**
      * Translate a command to its handler counterpart
@@ -18,5 +19,4 @@ interface CommandTranslator {
      * @return mixed
      */
     public function toValidator($command);
-
 }

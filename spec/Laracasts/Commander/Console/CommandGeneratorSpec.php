@@ -9,7 +9,8 @@ use Mustache_Engine;
 use Laracasts\Commander\Console\CommandInputParser;
 use Laracasts\Commander\Console\CommandInput;
 
-class CommandGeneratorSpec extends ObjectBehavior {
+class CommandGeneratorSpec extends ObjectBehavior
+{
 
     function let(Filesystem $file, Mustache_Engine $mustache)
     {
@@ -33,5 +34,4 @@ class CommandGeneratorSpec extends ObjectBehavior {
 
         $this->make($input, $template, $destination);
     }
-
 }

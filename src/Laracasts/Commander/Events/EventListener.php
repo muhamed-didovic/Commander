@@ -2,7 +2,8 @@
 
 use ReflectionClass;
 
-abstract class EventListener {
+abstract class EventListener
+{
 
     /**
      * Handle the event
@@ -14,8 +15,7 @@ abstract class EventListener {
     {
         $eventName = $this->getEventName($event);
 
-        if ($this->listenerIsRegistered($eventName))
-        {
+        if ($this->listenerIsRegistered($eventName)) {
             return call_user_func([$this, 'when'.$eventName], $event);
         }
     }
@@ -44,5 +44,4 @@ abstract class EventListener {
 
         return method_exists($this, $method);
     }
-
-} 
+}

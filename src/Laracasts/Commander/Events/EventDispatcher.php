@@ -3,7 +3,8 @@
 use Illuminate\Events\Dispatcher;
 use Illuminate\Log\Writer;
 
-class EventDispatcher {
+class EventDispatcher
+{
 
     /**
      * @var Dispatcher
@@ -32,8 +33,7 @@ class EventDispatcher {
      */
     public function dispatch(array $events)
     {
-        foreach($events as $event)
-        {
+        foreach ($events as $event) {
             $eventName = $this->getEventName($event);
 
             $this->event->fire($eventName, $event);
@@ -53,5 +53,4 @@ class EventDispatcher {
     {
         return str_replace('\\', '.', get_class($event));
     }
-
-} 
+}

@@ -6,7 +6,8 @@ use Symfony\Component\Console\Input\InputArgument;
 use Illuminate\Filesystem\Filesystem;
 use Mustache_Engine;
 
-class CommanderGenerateCommand extends Command {
+class CommanderGenerateCommand extends Command
+{
 
     /**
      * The console command name.
@@ -106,5 +107,4 @@ class CommanderGenerateCommand extends Command {
             ['base', null, InputOption::VALUE_OPTIONAL, 'The path to where your domain root is located.', 'app']
         ];
     }
-
 }

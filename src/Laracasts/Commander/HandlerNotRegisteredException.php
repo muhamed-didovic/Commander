@@ -1,3 +1,6 @@
 <?php namespace Laracasts\Commander;
 
-class HandlerNotRegisteredException extends \Exception {}
+class HandlerNotRegisteredException extends \Exception
+{
+
+}
